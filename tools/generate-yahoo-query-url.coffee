@@ -17,10 +17,10 @@ getYQLQuery = (currencyPairs) ->
 
 getQueryUrl = (yqlQuery) ->
   env = "store://datatables.org/alltableswithkeys"
-  "https://query.yahooapis.com/v1/public/yql?q=#{yqlQuery}&format=json&env=#{env}"
+  encodeURI "https://query.yahooapis.com/v1/public/yql?q=#{yqlQuery}&format=json&env=#{env}"
 
 writeScriptFile = (url) ->
-  content = "currencyExchangeRatesUrl = \"\"\"#{url}\"\"\""
+  content = "window.currencyExchangeRatesUrl = \"\"\"#{url}\"\"\""
   fs.writeFileSync "app/scripts/rates-query-url.coffee", content
 
 main = ->
