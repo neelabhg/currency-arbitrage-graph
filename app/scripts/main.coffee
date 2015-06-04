@@ -1,6 +1,9 @@
 getCurrencies = ->
   $.getJSON "data/currencies.json"
 
+getCountryData = ->
+  $.getJSON "data/currency_to_country_data_map.json"
+
 getUSDExchangeRates = ->
   $.getJSON(currencyExchangeRatesUrl).then (data) ->
     rates = data.query.results.rate
@@ -27,9 +30,10 @@ getExchangeRates = (usdFxRates) ->
         rate: usdRateMap[cur1] * (1 / usdRateMap[cur2])
   fxRates
 
-Promise.all([getUSDExchangeRates(), getCurrencies()]).then ([usdFxRates, currencies]) ->
+Promise.all([getUSDExchangeRates(), getCurrencies(), getCountryData()]).then ([usdFxRates, currencies, countries]) ->
   console.log usdFxRates
   console.log currencies
+  console.log countries
 
   fxRates = getExchangeRates usdFxRates
 
