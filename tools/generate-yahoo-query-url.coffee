@@ -2,7 +2,7 @@ fs = require("fs")
 
 getCurrencyList = ->
   # List is a subset of file downloaded from http://openexchangerates.org/currencies.json
-  contents = fs.readFileSync "app/data/currencies.json"
+  contents = fs.readFileSync "tools/data/currencies.json"
   JSON.parse(contents)
 
 getCurrencyPairs = (currencies) ->
