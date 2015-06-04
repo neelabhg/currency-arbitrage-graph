@@ -20,7 +20,7 @@ getQueryUrl = (yqlQuery) ->
   encodeURI "https://query.yahooapis.com/v1/public/yql?q=#{yqlQuery}&format=json&env=#{env}"
 
 writeScriptFile = (url) ->
-  content = "window.currencyExchangeRatesUrl = \"\"\"#{url}\"\"\""
+  content = "window.currencyExchangeRatesUrl = \"#{url}\""
   fs.writeFileSync "app/scripts/rates-query-url.coffee", content
 
 main = ->
