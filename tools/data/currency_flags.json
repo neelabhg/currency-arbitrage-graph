@@ -1,1 +1,449 @@
-{"ALL":{"country":"Albania","flag_image":"flags/albania.png"},"AFN":{"country":"Afghanistan","flag_image":"flags/afghanistan.png"},"ARS":{"country":"Argentina","flag_image":"flags/argentina.png"},"AWG":{"country":"Aruba","flag_image":"flags/aruba.png"},"AUD":{"country":"Australia","flag_image":"flags/australia.png"},"AZN":{"country":"Azerbaijan","flag_image":"flags/azerbaijan.png"},"BSD":{"country":"Bahamas","flag_image":"flags/bahamas.png"},"BBD":{"country":"Barbados","flag_image":"flags/barbados.png"},"BYR":{"country":"Belarus","flag_image":"flags/belarus.png"},"BZD":{"country":"Belize","flag_image":"flags/belize.png"},"BMD":{"country":"Bermuda","flag_image":"flags/bermuda.png"},"BOB":{"country":"Bolivia","flag_image":"flags/bolivia.png"},"BAM":{"country":"Bosnia and Herzegovina","flag_image":"flags/Bosnia_and_Herzegovina.png"},"BWP":{"country":"Botswana","flag_image":"flags/botswana.png"},"BGN":{"country":"Bulgaria","flag_image":"flags/bulgaria.png"},"BRL":{"country":"Brazil","flag_image":"flags/brazil.png"},"BND":{"country":"Brunei","flag_image":"flags/brunei.png"},"KHR":{"country":"Cambodia","flag_image":"flags/cambodia.png"},"CAD":{"country":"Canada","flag_image":"flags/canada.png"},"KYD":{"country":"Cayman","flag_image":"flags/Cayman_Islands.png"},"CLP":{"country":"Chile","flag_image":"flags/chile.png"},"CNY":{"country":"China","flag_image":"flags/china.png"},"COP":{"country":"Colombia","flag_image":"flags/colombia.png"},"CRC":{"country":"Costa Rica","flag_image":"flags/costarica.png"},"HRK":{"country":"Croatia","flag_image":"flags/croatia.png"},"CUP":{"country":"Cuba","flag_image":"flags/cuba.png"},"CZK":{"country":"Czech Republic","flag_image":"flags/czechrepublic.png"},"DKK":{"country":"Denmark","flag_image":"flags/denmark.png"},"DOP":{"country":"Dominican Republic","flag_image":"flags/dominicanrepublic.png"},"XCD":{"country":"East Caribbean"},"EGP":{"country":"Egypt","flag_image":"flags/egypt.png"},"SVC":{"country":"El Salvador","flag_image":"flags/elsalvador.png"},"EEK":{"country":"Estonia","flag_image":"flags/estonia.png"},"EUR":{"country":"Euro Member","flag_image":"flags/euro.png"},"FKP":{"country":"Falkland Islands ","flag_image":"flags/falklandislands.png"},"FJD":{"country":"Fiji","flag_image":"flags/fiji.png"},"GHC":{"country":"Ghana","flag_image":"flags/ghana.png"},"GIP":{"country":"Gibraltar","flag_image":"flags/gibraltar.png"},"GTQ":{"country":"Guatemala","flag_image":"flags/guatemala.png"},"GGP":{"country":"Guernsey","flag_image":"flags/guernsey.png"},"GYD":{"country":"Guyana","flag_image":"flags/guyana.png"},"HNL":{"country":"Honduras","flag_image":"flags/honduras.png"},"HKD":{"country":"Hong Kong","flag_image":"flags/hongkong.png"},"HUF":{"country":"Hungary","flag_image":"flags/hungary.png"},"ISK":{"country":"Iceland","flag_image":"flags/iceland.png"},"INR":{"country":"India","flag_image":"flags/india.png"},"IDR":{"country":"Indonesia","flag_image":"flags/indonesia.png"},"IRR":{"country":"Iran","flag_image":"flags/iran.png"},"IMP":{"country":"Isle of Man","flag_image":"flags/isleofman.png"},"ILS":{"country":"Israel","flag_image":"flags/israel.png"},"JMD":{"country":"Jamaica","flag_image":"flags/jamaica.png"},"JPY":{"country":"Japan","flag_image":"flags/japan.png"},"JEP":{"country":"Jersey","flag_image":"flags/jersey.png"},"KZT":{"country":"Kazakhstan","flag_image":"flags/kazakhstan.png"},"KPW":{"country":"Korea (North)","flag_image":"flags/northkorea.png"},"KRW":{"country":"Korea (South)","flag_image":"flags/southkorea.png"},"KGS":{"country":"Kyrgyzstan","flag_image":"flags/kyrgyzstan.png"},"LAK":{"country":"Laos","flag_image":"flags/laos.png"},"LVL":{"country":"Latvia","flag_image":"flags/latvia.png"},"LBP":{"country":"Lebanon","flag_image":"flags/lebanon.png"},"LRD":{"country":"Liberia","flag_image":"flags/liberia.png"},"LTL":{"country":"Lithuania","flag_image":"flags/lithuania.png"},"MKD":{"country":"Macedonia","flag_image":"flags/macedonia.png"},"MYR":{"country":"Malaysia","flag_image":"flags/malaysia.png"},"MUR":{"country":"Mauritius","flag_image":"flags/mauritius.png"},"MXN":{"country":"Mexico","flag_image":"flags/mexico.png"},"MNT":{"country":"Mongolia","flag_image":"flags/mongolia.png"},"MZN":{"country":"Mozambique","flag_image":"flags/mozambique.png"},"NAD":{"country":"Namibia","flag_image":"flags/namibia.png"},"NPR":{"country":"Nepal","flag_image":"flags/nepal.png"},"ANG":{"country":"Netherlands","flag_image":"flags/netherlands.png"},"NZD":{"country":"New Zealand","flag_image":"flags/newzealand.png"},"NIO":{"country":"Nicaragua","flag_image":"flags/nicaragua.png"},"NGN":{"country":"Nigeria","flag_image":"flags/nigeria.png"},"NOK":{"country":"Norway","flag_image":"flags/norway.png"},"OMR":{"country":"Oman","flag_image":"flags/oman.png"},"PKR":{"country":"Pakistan","flag_image":"flags/pakistan.png"},"PAB":{"country":"Panama","flag_image":"flags/panama.png"},"PYG":{"country":"Paraguay","flag_image":"flags/paraguay.png"},"PEN":{"country":"Peru","flag_image":"flags/peru.png"},"PHP":{"country":"Philippines","flag_image":"flags/philippines.png"},"PLN":{"country":"Poland","flag_image":"flags/poland.png"},"QAR":{"country":"Qatar","flag_image":"flags/qatar.png"},"RON":{"country":"Romania","flag_image":"flags/romania.png"},"RUB":{"country":"Russia","flag_image":"flags/russia.png"},"SHP":{"country":"Saint Helena","flag_image":"flags/sainthelena.png"},"SAR":{"country":"Saudi Arabia","flag_image":"flags/saudiarabia.png"},"RSD":{"country":"Serbia","flag_image":"flags/serbia.png"},"SCR":{"country":"Seychelles","flag_image":"flags/seychelles.png"},"SGD":{"country":"Singapore","flag_image":"flags/singapore.png"},"SBD":{"country":"Solomon Islands","flag_image":"flags/solomonislands.png"},"SOS":{"country":"Somalia","flag_image":"flags/somalia.png"},"ZAR":{"country":"South Africa","flag_image":"flags/southafrica.png"},"LKR":{"country":"Sri Lanka","flag_image":"flags/srilanka.png"},"SEK":{"country":"Sweden","flag_image":"flags/sweden.png"},"CHF":{"country":"Switzerland","flag_image":"flags/switzerland.png"},"SRD":{"country":"Suriname","flag_image":"flags/suriname.png"},"SYP":{"country":"Syria","flag_image":"flags/syria.png"},"TWD":{"country":"Taiwan","flag_image":"flags/taiwan.png"},"THB":{"country":"Thailand","flag_image":"flags/thailand.png"},"TTD":{"country":"Trinidad and Tobago","flag_image":"flags/trinidadandtobago.png"},"TRL":{"country":"Turkey","flag_image":"flags/turkey.png"},"TVD":{"country":"Tuvalu","flag_image":"flags/tuvalu.png"},"UAH":{"country":"Ukraine","flag_image":"flags/ukraine.png"},"GBP":{"country":"United Kingdom","flag_image":"flags/unitedkingdom.png"},"USD":{"country":"United States","flag_image":"flags/unitedstates.png"},"UYU":{"country":"Uruguay","flag_image":"flags/uruguay.png"},"UZS":{"country":"Uzbekistan","flag_image":"flags/uzbekistan.png"},"VEF":{"country":"Venezuela","flag_image":"flags/venezuela.png"},"VND":{"country":"Viet Nam","flag_image":"flags/vietnam.png"},"YER":{"country":"Yemen","flag_image":"flags/yemen.png"},"ZWD":{"country":"Zimbabwe","flag_image":"flags/zimbabwe.png"}}
+{
+  "ALL": {
+    "country": "Albania",
+    "flag_image": "flags/albania.png"
+  },
+  "AFN": {
+    "country": "Afghanistan",
+    "flag_image": "flags/afghanistan.png"
+  },
+  "ARS": {
+    "country": "Argentina",
+    "flag_image": "flags/argentina.png"
+  },
+  "AWG": {
+    "country": "Aruba",
+    "flag_image": "flags/aruba.png"
+  },
+  "AUD": {
+    "country": "Australia",
+    "flag_image": "flags/australia.png"
+  },
+  "AZN": {
+    "country": "Azerbaijan",
+    "flag_image": "flags/azerbaijan.png"
+  },
+  "BSD": {
+    "country": "Bahamas",
+    "flag_image": "flags/bahamas.png"
+  },
+  "BBD": {
+    "country": "Barbados",
+    "flag_image": "flags/barbados.png"
+  },
+  "BYR": {
+    "country": "Belarus",
+    "flag_image": "flags/belarus.png"
+  },
+  "BZD": {
+    "country": "Belize",
+    "flag_image": "flags/belize.png"
+  },
+  "BMD": {
+    "country": "Bermuda",
+    "flag_image": "flags/bermuda.png"
+  },
+  "BOB": {
+    "country": "Bolivia",
+    "flag_image": "flags/bolivia.png"
+  },
+  "BAM": {
+    "country": "Bosnia and Herzegovina",
+    "flag_image": "flags/Bosnia_and_Herzegovina.png"
+  },
+  "BWP": {
+    "country": "Botswana",
+    "flag_image": "flags/botswana.png"
+  },
+  "BGN": {
+    "country": "Bulgaria",
+    "flag_image": "flags/bulgaria.png"
+  },
+  "BRL": {
+    "country": "Brazil",
+    "flag_image": "flags/brazil.png"
+  },
+  "BND": {
+    "country": "Brunei",
+    "flag_image": "flags/brunei.png"
+  },
+  "KHR": {
+    "country": "Cambodia",
+    "flag_image": "flags/cambodia.png"
+  },
+  "CAD": {
+    "country": "Canada",
+    "flag_image": "flags/canada.png"
+  },
+  "KYD": {
+    "country": "Cayman",
+    "flag_image": "flags/Cayman_Islands.png"
+  },
+  "CLP": {
+    "country": "Chile",
+    "flag_image": "flags/chile.png"
+  },
+  "CNY": {
+    "country": "China",
+    "flag_image": "flags/china.png"
+  },
+  "COP": {
+    "country": "Colombia",
+    "flag_image": "flags/colombia.png"
+  },
+  "CRC": {
+    "country": "Costa Rica",
+    "flag_image": "flags/costarica.png"
+  },
+  "HRK": {
+    "country": "Croatia",
+    "flag_image": "flags/croatia.png"
+  },
+  "CUP": {
+    "country": "Cuba",
+    "flag_image": "flags/cuba.png"
+  },
+  "CZK": {
+    "country": "Czech Republic",
+    "flag_image": "flags/czechrepublic.png"
+  },
+  "DKK": {
+    "country": "Denmark",
+    "flag_image": "flags/denmark.png"
+  },
+  "DOP": {
+    "country": "Dominican Republic",
+    "flag_image": "flags/dominicanrepublic.png"
+  },
+  "XCD": {
+    "country": "East Caribbean"
+  },
+  "EGP": {
+    "country": "Egypt",
+    "flag_image": "flags/egypt.png"
+  },
+  "SVC": {
+    "country": "El Salvador",
+    "flag_image": "flags/elsalvador.png"
+  },
+  "EEK": {
+    "country": "Estonia",
+    "flag_image": "flags/estonia.png"
+  },
+  "EUR": {
+    "country": "Euro Member",
+    "flag_image": "flags/euro.png"
+  },
+  "FKP": {
+    "country": "Falkland Islands ",
+    "flag_image": "flags/falklandislands.png"
+  },
+  "FJD": {
+    "country": "Fiji",
+    "flag_image": "flags/fiji.png"
+  },
+  "GHC": {
+    "country": "Ghana",
+    "flag_image": "flags/ghana.png"
+  },
+  "GIP": {
+    "country": "Gibraltar",
+    "flag_image": "flags/gibraltar.png"
+  },
+  "GTQ": {
+    "country": "Guatemala",
+    "flag_image": "flags/guatemala.png"
+  },
+  "GGP": {
+    "country": "Guernsey",
+    "flag_image": "flags/guernsey.png"
+  },
+  "GYD": {
+    "country": "Guyana",
+    "flag_image": "flags/guyana.png"
+  },
+  "HNL": {
+    "country": "Honduras",
+    "flag_image": "flags/honduras.png"
+  },
+  "HKD": {
+    "country": "Hong Kong",
+    "flag_image": "flags/hongkong.png"
+  },
+  "HUF": {
+    "country": "Hungary",
+    "flag_image": "flags/hungary.png"
+  },
+  "ISK": {
+    "country": "Iceland",
+    "flag_image": "flags/iceland.png"
+  },
+  "INR": {
+    "country": "India",
+    "flag_image": "flags/india.png"
+  },
+  "IDR": {
+    "country": "Indonesia",
+    "flag_image": "flags/indonesia.png"
+  },
+  "IRR": {
+    "country": "Iran",
+    "flag_image": "flags/iran.png"
+  },
+  "IMP": {
+    "country": "Isle of Man",
+    "flag_image": "flags/isleofman.png"
+  },
+  "ILS": {
+    "country": "Israel",
+    "flag_image": "flags/israel.png"
+  },
+  "JMD": {
+    "country": "Jamaica",
+    "flag_image": "flags/jamaica.png"
+  },
+  "JPY": {
+    "country": "Japan",
+    "flag_image": "flags/japan.png"
+  },
+  "JEP": {
+    "country": "Jersey",
+    "flag_image": "flags/jersey.png"
+  },
+  "KZT": {
+    "country": "Kazakhstan",
+    "flag_image": "flags/kazakhstan.png"
+  },
+  "KPW": {
+    "country": "Korea (North)",
+    "flag_image": "flags/northkorea.png"
+  },
+  "KRW": {
+    "country": "Korea (South)",
+    "flag_image": "flags/southkorea.png"
+  },
+  "KGS": {
+    "country": "Kyrgyzstan",
+    "flag_image": "flags/kyrgyzstan.png"
+  },
+  "LAK": {
+    "country": "Laos",
+    "flag_image": "flags/laos.png"
+  },
+  "LVL": {
+    "country": "Latvia",
+    "flag_image": "flags/latvia.png"
+  },
+  "LBP": {
+    "country": "Lebanon",
+    "flag_image": "flags/lebanon.png"
+  },
+  "LRD": {
+    "country": "Liberia",
+    "flag_image": "flags/liberia.png"
+  },
+  "LTL": {
+    "country": "Lithuania",
+    "flag_image": "flags/lithuania.png"
+  },
+  "MKD": {
+    "country": "Macedonia",
+    "flag_image": "flags/macedonia.png"
+  },
+  "MYR": {
+    "country": "Malaysia",
+    "flag_image": "flags/malaysia.png"
+  },
+  "MUR": {
+    "country": "Mauritius",
+    "flag_image": "flags/mauritius.png"
+  },
+  "MXN": {
+    "country": "Mexico",
+    "flag_image": "flags/mexico.png"
+  },
+  "MNT": {
+    "country": "Mongolia",
+    "flag_image": "flags/mongolia.png"
+  },
+  "MZN": {
+    "country": "Mozambique",
+    "flag_image": "flags/mozambique.png"
+  },
+  "NAD": {
+    "country": "Namibia",
+    "flag_image": "flags/namibia.png"
+  },
+  "NPR": {
+    "country": "Nepal",
+    "flag_image": "flags/nepal.png"
+  },
+  "ANG": {
+    "country": "Netherlands",
+    "flag_image": "flags/netherlands.png"
+  },
+  "NZD": {
+    "country": "New Zealand",
+    "flag_image": "flags/newzealand.png"
+  },
+  "NIO": {
+    "country": "Nicaragua",
+    "flag_image": "flags/nicaragua.png"
+  },
+  "NGN": {
+    "country": "Nigeria",
+    "flag_image": "flags/nigeria.png"
+  },
+  "NOK": {
+    "country": "Norway",
+    "flag_image": "flags/norway.png"
+  },
+  "OMR": {
+    "country": "Oman",
+    "flag_image": "flags/oman.png"
+  },
+  "PKR": {
+    "country": "Pakistan",
+    "flag_image": "flags/pakistan.png"
+  },
+  "PAB": {
+    "country": "Panama",
+    "flag_image": "flags/panama.png"
+  },
+  "PYG": {
+    "country": "Paraguay",
+    "flag_image": "flags/paraguay.png"
+  },
+  "PEN": {
+    "country": "Peru",
+    "flag_image": "flags/peru.png"
+  },
+  "PHP": {
+    "country": "Philippines",
+    "flag_image": "flags/philippines.png"
+  },
+  "PLN": {
+    "country": "Poland",
+    "flag_image": "flags/poland.png"
+  },
+  "QAR": {
+    "country": "Qatar",
+    "flag_image": "flags/qatar.png"
+  },
+  "RON": {
+    "country": "Romania",
+    "flag_image": "flags/romania.png"
+  },
+  "RUB": {
+    "country": "Russia",
+    "flag_image": "flags/russia.png"
+  },
+  "SHP": {
+    "country": "Saint Helena",
+    "flag_image": "flags/sainthelena.png"
+  },
+  "SAR": {
+    "country": "Saudi Arabia",
+    "flag_image": "flags/saudiarabia.png"
+  },
+  "RSD": {
+    "country": "Serbia",
+    "flag_image": "flags/serbia.png"
+  },
+  "SCR": {
+    "country": "Seychelles",
+    "flag_image": "flags/seychelles.png"
+  },
+  "SGD": {
+    "country": "Singapore",
+    "flag_image": "flags/singapore.png"
+  },
+  "SBD": {
+    "country": "Solomon Islands",
+    "flag_image": "flags/solomonislands.png"
+  },
+  "SOS": {
+    "country": "Somalia",
+    "flag_image": "flags/somalia.png"
+  },
+  "ZAR": {
+    "country": "South Africa",
+    "flag_image": "flags/southafrica.png"
+  },
+  "LKR": {
+    "country": "Sri Lanka",
+    "flag_image": "flags/srilanka.png"
+  },
+  "SEK": {
+    "country": "Sweden",
+    "flag_image": "flags/sweden.png"
+  },
+  "CHF": {
+    "country": "Switzerland",
+    "flag_image": "flags/switzerland.png"
+  },
+  "SRD": {
+    "country": "Suriname",
+    "flag_image": "flags/suriname.png"
+  },
+  "SYP": {
+    "country": "Syria",
+    "flag_image": "flags/syria.png"
+  },
+  "TWD": {
+    "country": "Taiwan",
+    "flag_image": "flags/taiwan.png"
+  },
+  "THB": {
+    "country": "Thailand",
+    "flag_image": "flags/thailand.png"
+  },
+  "TTD": {
+    "country": "Trinidad and Tobago",
+    "flag_image": "flags/trinidadandtobago.png"
+  },
+  "TRL": {
+    "country": "Turkey",
+    "flag_image": "flags/turkey.png"
+  },
+  "TVD": {
+    "country": "Tuvalu",
+    "flag_image": "flags/tuvalu.png"
+  },
+  "UAH": {
+    "country": "Ukraine",
+    "flag_image": "flags/ukraine.png"
+  },
+  "GBP": {
+    "country": "United Kingdom",
+    "flag_image": "flags/unitedkingdom.png"
+  },
+  "USD": {
+    "country": "United States",
+    "flag_image": "flags/unitedstates.png"
+  },
+  "UYU": {
+    "country": "Uruguay",
+    "flag_image": "flags/uruguay.png"
+  },
+  "UZS": {
+    "country": "Uzbekistan",
+    "flag_image": "flags/uzbekistan.png"
+  },
+  "VEF": {
+    "country": "Venezuela",
+    "flag_image": "flags/venezuela.png"
+  },
+  "VND": {
+    "country": "Viet Nam",
+    "flag_image": "flags/vietnam.png"
+  },
+  "YER": {
+    "country": "Yemen",
+    "flag_image": "flags/yemen.png"
+  },
+  "ZWD": {
+    "country": "Zimbabwe",
+    "flag_image": "flags/zimbabwe.png"
+  }
+}
