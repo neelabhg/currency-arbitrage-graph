@@ -1,0 +1,16 @@
+{
+  "currencies_included": [
+    "AED",
+    "CAD",
+    "CHF",
+    "EUR",
+    "GBP",
+    "HKD",
+    "INR",
+    "JPY",
+    "KRW",
+    "QAR",
+    "SGD",
+    "USD"
+  ]
+}

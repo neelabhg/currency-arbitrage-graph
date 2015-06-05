@@ -1,13 +1,12 @@
 fs = require("fs")
 
 getCurrencyList = ->
-  # List is a subset of file downloaded from http://openexchangerates.org/currencies.json
-  contents = fs.readFileSync "app/data/currencies.json"
-  JSON.parse(contents)
+  contents = fs.readFileSync "tools/data/config.json"
+  JSON.parse(contents)["currencies_included"]
 
 getCurrencyPairs = (currencies) ->
   pairs = []
-  for cur of currencies
+  for cur in currencies
     pairs.push "USD" + cur
   pairs
 
