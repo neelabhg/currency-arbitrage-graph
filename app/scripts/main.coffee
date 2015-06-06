@@ -28,9 +28,6 @@ getExchangeRates = (usdFxRates) ->
   fxRates
 
 Promise.all([getUSDExchangeRates(), getCurrencies()]).then ([usdFxRates, currencies]) ->
-  console.log usdFxRates
-  console.log currencies
-
   # Use only those currencies for which we have information in currencies.json
   usdFxRates = usdFxRates.filter (rate) ->
     currencies[rate.to]
@@ -46,9 +43,20 @@ Promise.all([getUSDExchangeRates(), getCurrencies()]).then ([usdFxRates, currenc
             width: 50
             height: 33.25
             shape: "rectangle"
-            content: "data(name)"
             "background-image": "data(flag_image)"
             "background-fit": "cover"
+        .selector("node:selected")
+          .css
+            content: "data(name)"
+            "border-width": 2
+        .selector("edge")
+          .css
+            "target-arrow-shape": "triangle"
+        .selector("edge:selected")
+          .css
+            content: "data(rate)"
+            "line-color": "black"
+            "target-arrow-color": "black"
     elements:
       nodes:
         usdFxRates.map (rate) ->
