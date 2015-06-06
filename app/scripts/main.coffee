@@ -1,5 +1,5 @@
 getCurrencies = ->
-  $.getJSON "data/currencies.json"
+  $.getJSON "data/currencies.min.json"
 
 getUSDExchangeRates = ->
   $.getJSON(currencyExchangeRatesUrl).then (data) ->
@@ -31,22 +31,34 @@ Promise.all([getUSDExchangeRates(), getCurrencies()]).then ([usdFxRates, currenc
   console.log usdFxRates
   console.log currencies
 
+  # Use only those currencies for which we have information in currencies.json
+  usdFxRates = usdFxRates.filter (rate) ->
+    currencies[rate.to]
+
   fxRates = getExchangeRates usdFxRates
 
   $("#graph").cytoscape
     layout:
-      name: "grid"
+      name: "circle"
     style: cytoscape.stylesheet()
         .selector("node")
           .css
-            content: "data(id)"
+            width: 50
+            height: 33.25
+            shape: "rectangle"
+            content: "data(name)"
+            "background-image": "data(flag_image)"
+            "background-fit": "cover"
     elements:
       nodes:
         usdFxRates.map (rate) ->
           currency = rate.to
+          currencyData = currencies[currency]
           data:
             id: currency
-            name: currencies[currency]
+            name: currencyData.name
+            country: currencyData.country
+            flag_image: "images/" + currencyData.flag_image
       edges:
         fxRates.map (rate) ->
           data:
