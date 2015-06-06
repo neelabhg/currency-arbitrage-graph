@@ -1,14 +1,57 @@
 {
-	"AED": "United Arab Emirates Dirham",
-	"CAD": "Canadian Dollar",
-	"CHF": "Swiss Franc",
-	"EUR": "Euro",
-	"GBP": "British Pound Sterling",
-	"HKD": "Hong Kong Dollar",
-	"INR": "Indian Rupee",
-	"JPY": "Japanese Yen",
-	"KRW": "South Korean Won",
-	"QAR": "Qatari Rial",
-	"SGD": "Singapore Dollar",
-	"USD": "United States Dollar"
+  "CAD": {
+    "name": "Canadian Dollar",
+    "country": "Canada",
+    "flag_image": "flags/canada.png"
+  },
+  "CHF": {
+    "name": "Swiss Franc",
+    "country": "Switzerland",
+    "flag_image": "flags/switzerland.png"
+  },
+  "EUR": {
+    "name": "Euro",
+    "country": "Euro Member",
+    "flag_image": "flags/euro.png"
+  },
+  "GBP": {
+    "name": "British Pound Sterling",
+    "country": "United Kingdom",
+    "flag_image": "flags/unitedkingdom.png"
+  },
+  "HKD": {
+    "name": "Hong Kong Dollar",
+    "country": "Hong Kong",
+    "flag_image": "flags/hongkong.png"
+  },
+  "INR": {
+    "name": "Indian Rupee",
+    "country": "India",
+    "flag_image": "flags/india.png"
+  },
+  "JPY": {
+    "name": "Japanese Yen",
+    "country": "Japan",
+    "flag_image": "flags/japan.png"
+  },
+  "KRW": {
+    "name": "South Korean Won",
+    "country": "Korea (South)",
+    "flag_image": "flags/southkorea.png"
+  },
+  "QAR": {
+    "name": "Qatari Rial",
+    "country": "Qatar",
+    "flag_image": "flags/qatar.png"
+  },
+  "SGD": {
+    "name": "Singapore Dollar",
+    "country": "Singapore",
+    "flag_image": "flags/singapore.png"
+  },
+  "USD": {
+    "name": "United States Dollar",
+    "country": "United States",
+    "flag_image": "flags/unitedstates.png"
+  }
 }

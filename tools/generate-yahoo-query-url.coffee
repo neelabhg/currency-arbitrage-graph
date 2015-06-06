@@ -1,4 +1,4 @@
-fs = require("fs")
+fs = require "fs"
 
 getCurrencyList = ->
   contents = fs.readFileSync "tools/data/config.json"
