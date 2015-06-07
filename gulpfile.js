@@ -23,6 +23,12 @@ gulp.task('scripts', function () {
     .pipe(gulp.dest('.tmp/scripts'));
 });
 
+gulp.task('scripts:test', function () {
+  return gulp.src('test/spec/**/*.coffee')
+    .pipe($.coffee())
+    .pipe(gulp.dest('.tmp/spec'));
+});
+
 function jshint(files) {
   return function () {
     return gulp.src(files)
@@ -118,22 +124,24 @@ gulp.task('serve:dist', function () {
   });
 });
 
-gulp.task('serve:test', function () {
+gulp.task('serve:test', ['scripts:test'], function () {
   browserSync({
     notify: false,
     open: false,
     port: 9000,
     ui: false,
     server: {
-      baseDir: 'test'
+      baseDir: ['.tmp', 'test']
     }
   });
 
   gulp.watch([
     'test/spec/**/*.js',
+    '.tmp/spec/**/*.js'
   ]).on('change', reload);
 
   gulp.watch('test/spec/**/*.js', ['jshint:test']);
+  gulp.watch('test/spec/**/*.coffee', ['scripts:test']);
 });
 
 // inject bower components
