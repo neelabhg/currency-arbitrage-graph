@@ -46,9 +46,13 @@ loadGraph = (includedCurrencies, fxRates, currenciesInfo) ->
 main = ->
   $currencyListSelect = $("#currency-list-select")
   getCurrencies().then (currencies) ->
+    preSelectedCurrencies = ["CAD", "CHF", "EUR", "GBP", "HKD", "INR", "JPY", "KRW", "QAR", "SGD", "USD"]
+
     $currencyListSelect.select2
-      data: Object.keys(currencies).map (cur, i) ->
+      data: Object.keys(currencies).map (cur) ->
         {id: cur, text: "#{cur}: #{currencies[cur]['name']}"}
+
+    $currencyListSelect.select2('val', preSelectedCurrencies)
 
     $("#load-current-data-graph").click ->
       selectedCurrencies = $currencyListSelect.val()
