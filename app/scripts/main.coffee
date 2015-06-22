@@ -59,6 +59,8 @@ loadGraph = (includedCurrencies, fxRates, currenciesInfo) ->
   if bf.hasNegativeWeightCycle
     writeMessage false, "Negative weight cycle detected!"
 
+  window.out = findNegativeCycles $("#graph").cytoscape("get")
+
 loadDemo = (number, currenciesInfo) ->
   $.getJSON("data/demo#{number}.json").then (data) ->
     writeMessage true, "Loading graph with dummy data."

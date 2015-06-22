@@ -52,9 +52,11 @@
           <button class="btn" id="load-demo-1">Demo 1</button>
           <button class="btn" id="load-demo-2">Demo 2</button>
           <h3>Real data</h3>
-          <label for="currency-list-select">Select currencies</label>
-          <select id="currency-list-select" multiple="multiple"></select>
-          <button class="btn" id="load-real-data-graph">Load graph</button>
+          <div style="overflow-x: hidden">
+            <label for="currency-list-select">Select currencies</label>
+            <select id="currency-list-select" multiple="multiple"></select>
+            <button class="btn" id="load-real-data-graph">Load graph</button>
+          </div>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <div id="graph"></div>
@@ -99,6 +101,7 @@
     <!-- build:js scripts/main.js -->
     <script src="scripts/rates-query-url.js"></script>
     <script src="scripts/current-fx-rates.js"></script>
+    <script src="scripts/algorithm.js"></script>
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
 </body>
