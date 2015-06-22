@@ -46,6 +46,7 @@ gulp.task('html', ['styles', 'scripts'], function () {
   var assets = $.useref.assets({searchPath: ['.tmp', 'app', '.']});
 
   return gulp.src('app/*.html')
+    .pipe($.bootlint())
     .pipe(assets)
     .pipe($.if('*.js', $.uglify()))
     .pipe($.if('*.css', $.csso()))
