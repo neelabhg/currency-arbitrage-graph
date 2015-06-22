@@ -4,6 +4,7 @@
   "dependencies": {
     "bootstrap": "~3.3.1",
     "modernizr": "~2.8.1",
-    "cytoscape": "~2.4.1"
+    "cytoscape": "~2.4.1",
+    "select2": "~4.0.0"
   }
 }
