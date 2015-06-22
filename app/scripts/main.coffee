@@ -1,39 +1,8 @@
 getCurrencies = ->
   $.getJSON "data/currencies.min.json"
 
-getUSDExchangeRates = ->
-  $.getJSON(currencyExchangeRatesUrl).then (data) ->
-    rates = data.query.results.rate
-    rates.filter (rate) ->
-       rate.Rate != "N/A"
-    .map (rate) ->
-      currencies = rate.Name.split("/")
-      from: currencies[0]
-      to: currencies[1]
-      rate: rate.Rate
-
-getExchangeRates = (usdFxRates) ->
-  usdRateMap = {}
-  usdFxRates.forEach (rate) ->
-    usdRateMap[rate.to] = rate.rate
-
-  # https://openexchangerates.org/documentation#how-to-use
-  fxRates = []
-  for cur1 of usdRateMap
-    for cur2 of usdRateMap
-      fxRates.push
-        from: cur1
-        to: cur2
-        rate: usdRateMap[cur1] * (1 / usdRateMap[cur2])
-  fxRates
-
-Promise.all([getUSDExchangeRates(), getCurrencies()]).then ([usdFxRates, currencies]) ->
-  # Use only those currencies for which we have information in currencies.json
-  usdFxRates = usdFxRates.filter (rate) ->
-    currencies[rate.to]
-
-  fxRates = getExchangeRates usdFxRates
-
+loadGraph = (includedCurrencies, fxRates, currenciesInfo) ->
+  console.log fxRates
   $("#graph").cytoscape
     layout:
       name: "circle"
@@ -59,9 +28,8 @@ Promise.all([getUSDExchangeRates(), getCurrencies()]).then ([usdFxRates, currenc
             "target-arrow-color": "black"
     elements:
       nodes:
-        usdFxRates.map (rate) ->
-          currency = rate.to
-          currencyData = currencies[currency]
+        for currency in includedCurrencies
+          currencyData = currenciesInfo[currency]
           data:
             id: currency
             name: currencyData.name
@@ -75,3 +43,16 @@ Promise.all([getUSDExchangeRates(), getCurrencies()]).then ([usdFxRates, currenc
             target: rate.to
             rate: rate.rate
             weight: -1 * Math.log(rate.rate)
+
+main = ->
+  $currencyListSelect = $("#currency-list-select")
+  getCurrencies().then (currencies) ->
+    $currencyListSelect.select2
+      data: Object.keys(currencies).map (cur, i) ->
+        {id: cur, text: "#{cur}: #{currencies[cur]['name']}"}
+
+    $("#load-current-data-graph").click ->
+      selectedCurrencies = $currencyListSelect.val()
+      getCurrentFxRates(selectedCurrencies).then (fxRates) ->
+        loadGraph selectedCurrencies, fxRates, currencies
+main()
