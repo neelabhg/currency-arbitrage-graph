@@ -2,7 +2,7 @@ getCurrencies = ->
   $.getJSON "data/currencies.min.json"
 
 loadGraph = (includedCurrencies, fxRates, currenciesInfo) ->
-  $("#graph").cytoscape
+  $("#graph").height($(document).height() - 100).cytoscape
     layout:
       name: "circle"
     style: cytoscape.stylesheet()
