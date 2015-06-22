@@ -43,6 +43,10 @@ loadGraph = (includedCurrencies, fxRates, currenciesInfo) ->
             rate: rate.rate
             weight: -1 * Math.log(rate.rate)
 
+loadDemo = (number, currenciesInfo) ->
+  $.getJSON("data/demo#{number}.json").then (data) ->
+    loadGraph data.currencies, data.rates, currenciesInfo
+
 main = ->
   $currencyListSelect = $("#currency-list-select")
   getCurrencies().then (currencies) ->
@@ -54,11 +58,17 @@ main = ->
 
     $currencyListSelect.select2('val', preSelectedCurrencies)
 
-    $("#load-current-data-graph").click ->
+    $("#load-real-data-graph").click ->
       selectedCurrencies = $currencyListSelect.val()
       if !selectedCurrencies? or selectedCurrencies.length < 2
         console.log "Must include at least two currencies to get exchange rates"
       else
         getCurrentFxRates(selectedCurrencies).then (fxRates) ->
           loadGraph selectedCurrencies, fxRates, currencies
+
+    $("#load-demo-1").click ->
+      loadDemo 1, currencies
+    $("#load-demo-2").click ->
+      loadDemo 2, currencies
+
 main()
