@@ -1,6 +1,11 @@
 generateQueryUrl = (currencies) ->
-  console.log currencies
-  currencyExchangeRatesUrl
+  currencyPairs = []
+  for cur in currencies
+    currencyPairs.push "USD" + cur
+  pairs = currencyPairs.map((pair) -> "\"#{pair}\"").join(", ")
+  yqlQuery = "select * from yahoo.finance.xchange where pair in (#{pairs})"
+  env = "store://datatables.org/alltableswithkeys"
+  encodeURI "https://query.yahooapis.com/v1/public/yql?q=#{yqlQuery}&format=json&env=#{env}"
 
 getUSDExchangeRates = (url) ->
   $.getJSON(url).then (data) ->

@@ -2,7 +2,6 @@ getCurrencies = ->
   $.getJSON "data/currencies.min.json"
 
 loadGraph = (includedCurrencies, fxRates, currenciesInfo) ->
-  console.log fxRates
   $("#graph").cytoscape
     layout:
       name: "circle"
@@ -53,6 +52,9 @@ main = ->
 
     $("#load-current-data-graph").click ->
       selectedCurrencies = $currencyListSelect.val()
-      getCurrentFxRates(selectedCurrencies).then (fxRates) ->
-        loadGraph selectedCurrencies, fxRates, currencies
+      if !selectedCurrencies? or selectedCurrencies.length < 2
+        console.log "Must include at least two currencies to get exchange rates"
+      else
+        getCurrentFxRates(selectedCurrencies).then (fxRates) ->
+          loadGraph selectedCurrencies, fxRates, currencies
 main()
