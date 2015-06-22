@@ -1,8 +1,15 @@
+writeMessage = (->
+  $messages = $("#messages")
+  (clear, message) ->
+    oldText = if clear then "" else $messages.text() + "\n"
+    newText = message ? ""
+    $messages.text(oldText + newText))()
+
 getCurrencies = ->
   $.getJSON "data/currencies.min.json"
 
 loadGraph = (includedCurrencies, fxRates, currenciesInfo) ->
-  $("#graph").height($(document).height() - 100).cytoscape
+  $("#graph").height($(document).height() - 150).cytoscape
     layout:
       name: "circle"
     style: cytoscape.stylesheet()
@@ -43,8 +50,18 @@ loadGraph = (includedCurrencies, fxRates, currenciesInfo) ->
             rate: rate.rate
             weight: -1 * Math.log(rate.rate)
 
+  cy = $("#graph").cytoscape("get")
+  bf = cy.elements().bellmanFord({
+    root: "#USD"
+    weight: (edge) -> edge.data("weight")
+    directed: true
+  })
+  if bf.hasNegativeWeightCycle
+    writeMessage false, "Negative weight cycle detected!"
+
 loadDemo = (number, currenciesInfo) ->
   $.getJSON("data/demo#{number}.json").then (data) ->
+    writeMessage true, "Loading graph with dummy data."
     loadGraph data.currencies, data.rates, currenciesInfo
 
 main = ->
@@ -64,6 +81,7 @@ main = ->
         console.log "Must include at least two currencies to get exchange rates"
       else
         getCurrentFxRates(selectedCurrencies).then (fxRates) ->
+          writeMessage true, "Loading graph with current data from Yahoo Finance."
           loadGraph selectedCurrencies, fxRates, currencies
 
     $("#load-demo-1").click ->
