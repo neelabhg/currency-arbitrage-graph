@@ -30,7 +30,7 @@ getExchangeRates = (usdFxRates) ->
       fxRates.push
         from: cur1
         to: cur2
-        rate: usdRateMap[cur1] * (1 / usdRateMap[cur2])
+        rate: usdRateMap[cur2] * (1 / usdRateMap[cur1])
   fxRates
 
 window.getCurrentFxRates = (currencies) ->
