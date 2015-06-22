@@ -8,6 +8,21 @@ writeMessage = (->
 getCurrencies = ->
   $.getJSON "data/currencies.min.json"
 
+findArbitrage = ->
+  cyGraph = $("#graph").cytoscape("get")
+  output = findNegativeCycles cyGraph
+  if output.hasNegativeWeightCycle
+    writeMessage false, "Negative weight cycle detected!"
+    cycle = output.cycles[0]
+    cycle.select()
+    edges = cycle.edges().map (elem) -> elem.data()
+    start = edges[0].source
+    multiplier = 1
+    for edge in edges
+      multiplier *= edge.rate
+    console.log start
+    console.log multiplier
+
 loadGraph = (includedCurrencies, fxRates, currenciesInfo) ->
   $("#graph").height($(document).height() - 150).cytoscape
     layout:
@@ -50,16 +65,7 @@ loadGraph = (includedCurrencies, fxRates, currenciesInfo) ->
             rate: rate.rate
             weight: -1 * Math.log(rate.rate)
 
-  cy = $("#graph").cytoscape("get")
-  bf = cy.elements().bellmanFord({
-    root: "#USD"
-    weight: (edge) -> edge.data("weight")
-    directed: true
-  })
-  if bf.hasNegativeWeightCycle
-    writeMessage false, "Negative weight cycle detected!"
-
-  window.out = findNegativeCycles $("#graph").cytoscape("get")
+  findArbitrage()
 
 loadDemo = (number, currenciesInfo) ->
   $.getJSON("data/demo#{number}.json").then (data) ->

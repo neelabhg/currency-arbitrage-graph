@@ -58,10 +58,6 @@ window.findNegativeCycles = (cyGraph) ->
         hasNegativeWeightCycle = true
         cyclic[targetIndex] = true
 
-  if hasNegativeWeightCycle
-    console.log "Negative cycles found!"
-    console.log cyclic
-
   # Build result object
   position2id = [];
   for node in nodes
