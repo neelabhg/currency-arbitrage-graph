@@ -19,12 +19,16 @@ gulp.task('styles', function () {
 
 gulp.task('scripts', function () {
   return gulp.src('app/scripts/**/*.coffee')
+    .pipe($.coffeelint())
+    .pipe($.coffeelint.reporter())
     .pipe($.coffee())
     .pipe(gulp.dest('.tmp/scripts'));
 });
 
 gulp.task('scripts:test', function () {
   return gulp.src('test/spec/**/*.coffee')
+    .pipe($.coffeelint())
+    .pipe($.coffeelint.reporter())
     .pipe($.coffee())
     .pipe(gulp.dest('.tmp/spec'));
 });
