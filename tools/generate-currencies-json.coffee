@@ -12,10 +12,7 @@ readJsonFile = (filename, key) ->
 
 writeJsonFile = (filename, obj, indent) ->
   fs.writeFileSync filename, JSON.stringify(obj, null, indent)
-  console.log "Wrote #{Object.keys(obj).length} entries to #{filename}."
-
-getIncludedCurrencyList = ->
-  readJsonFile "tools/data/config.json", "currencies_included"
+  console.log "Wrote #{getObjectLength obj} entries to #{filename}."
 
 getCurrencyNames = ->
   readJsonFile "tools/data/currency_names.json"
@@ -31,7 +28,7 @@ main = ->
   currencies = {}
   currencyNames = getCurrencyNames()
   currencyFlags = getCurrencyFlags()
-  for cur in getIncludedCurrencyList()
+  for cur in Object.keys(currencyNames)
     currencyName = currencyNames[cur]
     currencyFlag = currencyFlags[cur]
     if currencyName and currencyFlag
