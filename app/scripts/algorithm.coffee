@@ -1,5 +1,6 @@
 # Adapted from https://github.com/cytoscape/cytoscape.js/blob/master/src/collection-algorithms2.js
 # And based on http://www.kelvinjiang.com/2010/10/currency-arbitrage-in-99-lines-of-ruby.html
+
 window.findNegativeCycles = (cyGraph) ->
   elements = cyGraph.elements()
   edges = elements.edges().stdFilter((e) -> !e.isLoop())
@@ -7,69 +8,57 @@ window.findNegativeCycles = (cyGraph) ->
   source = nodes[0]
   weightFn = (edge) -> edge.data("weight")
 
-  # mapping: node id -> position in nodes array
-  id2position = {};
-  for node, i in nodes
-    id2position[node.id()] = i
-
   # Initializations
-  cost = [];
-  predecessor = [];
-  predEdge = [];
+  cost = {}
+  predecessor = {}
+  predEdge = {}
 
-  for node, i in nodes
-    if node.id() == source.id()
-      cost[i] = 0
-    else
-      cost[i] = Infinity
-    predecessor[i] = undefined
+  for node in nodes
+    cost[node.id()] = Infinity
+    predecessor[node.id()] = undefined
+  cost[source.id()] = 0
 
   # Edges relaxation
-  flag = false;
+  flag = false
   for node, i in nodes[1..]
-    flag = false;
-    for edge, e in edges
-      sourceIndex = id2position[edges[e].source().id()];
-      targetIndex = id2position[edges[e].target().id()];
-      weight = weightFn.apply(edges[e], [edges[e]]);
+    flag = false
+    for edge in edges
+      edgeSourceId = edge.source().id()
+      edgeTargetId = edge.target().id()
+      weight = weightFn.apply(edge, [edge])
 
-      temp = cost[sourceIndex] + weight
-      if (temp < cost[targetIndex])
-        cost[targetIndex] = temp
-        predecessor[targetIndex] = sourceIndex
-        predEdge[targetIndex] = edges[e]
+      temp = cost[edgeSourceId] + weight
+      if (temp < cost[edgeTargetId])
+        cost[edgeTargetId] = temp
+        predecessor[edgeTargetId] = edgeSourceId
+        predEdge[edgeTargetId] = edge
         flag = true
 
     if (!flag)
-      break;
+      break
 
   if (flag)
     # Check for negative weight cycles
     hasNegativeWeightCycle = false
     cyclic = {}
-    for edge, e in edges
-      sourceIndex = id2position[edges[e].source().id()];
-      targetIndex = id2position[edges[e].target().id()];
-      weight = weightFn.apply(edges[e], [edges[e]]);
+    for edge in edges
+      edgeSourceId = edge.source().id()
+      edgeTargetId = edge.target().id()
+      weight = weightFn.apply(edge, [edge])
 
-      temp = cost[sourceIndex] + weight
-      if (temp < cost[targetIndex])
-        cost[targetIndex] = temp
+      temp = cost[edgeSourceId] + weight
+      if (temp < cost[edgeTargetId])
+        cost[edgeTargetId] = temp
         hasNegativeWeightCycle = true
-        cyclic[targetIndex] = true
-
-  # Build result object
-  position2id = [];
-  for node in nodes
-    position2id.push(node.id())
+        cyclic[edgeTargetId] = true
 
   cycles = []
-  for nodeIndex in Object.keys(cyclic)
+  for nodeId in Object.keys(cyclic)
     visited = {}
     cycle = []
-    v = predecessor[nodeIndex]
+    v = predecessor[nodeId]
     while v? and !visited[v]
-      cycle.push(cyGraph.getElementById(position2id[v]))
+      cycle.push(cyGraph.getElementById(v))
       cycle.push(predEdge[v])
       visited[v] = true
       v = predecessor[v]
