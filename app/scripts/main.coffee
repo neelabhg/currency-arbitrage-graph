@@ -11,17 +11,26 @@ getCurrencies = ->
 findArbitrage = ->
   cyGraph = $("#graph").cytoscape("get")
   output = findNegativeCycles cyGraph
+
+  $negativeCyclesList = $("#negative-cycles-list")
+  $negativeCyclesList.empty()
+
   if output.hasNegativeWeightCycle
     writeMessage false, "#{output.cycles.length} negative weight cycle(s) detected!"
-    cycle = output.cycles[0]
-    cycle.select()
-    edges = cycle.edges().map (elem) -> elem.data()
-    start = edges[0].source
-    multiplier = 1
-    for edge in edges
-      multiplier *= edge.rate
-    console.log start
-    console.log multiplier
+    output.cycles.forEach (cycle) ->
+      $negativeCyclesList.append(
+        $("<a>")
+          .attr("href", "#")
+          .attr("class", "list-group-item")
+          .text(cycle.nodes().map((elem) -> elem.id()).join(" -> "))
+          .click(-> cycle.select()))
+      edges = cycle.edges().map (elem) -> elem.data()
+      start = edges[0].source
+      multiplier = 1
+      for edge in edges
+        multiplier *= edge.rate
+      console.log start
+      console.log multiplier
   else
     writeMessage false, "No negative weight cycles detected."
 
