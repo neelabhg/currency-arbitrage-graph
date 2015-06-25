@@ -18,19 +18,14 @@ findArbitrage = ->
   if output.hasNegativeWeightCycle
     writeMessage false, "#{output.cycles.length} negative weight cycle(s) detected!"
     output.cycles.forEach (cycle) ->
+      multiplier = cycle.edges().map((elem) -> elem.data("rate")).reduce((acc, rate) -> acc * rate)
       $negativeCyclesList.append(
         $("<a>")
           .attr("href", "#")
           .attr("class", "list-group-item")
-          .text(cycle.nodes().map((elem) -> elem.id()).join(" -> "))
-          .click(-> cycle.select()))
-      edges = cycle.edges().map (elem) -> elem.data()
-      start = edges[0].source
-      multiplier = 1
-      for edge in edges
-        multiplier *= edge.rate
-      console.log start
-      console.log multiplier
+          .click(-> cycle.select())
+          .append $("<p>").html(cycle.nodes().map((elem) -> elem.id()).join(" &rarr; "))
+          .append $("<p>").text("With 1 unit of the starting currency, you get #{multiplier} units"))
   else
     writeMessage false, "No negative weight cycles detected."
 
