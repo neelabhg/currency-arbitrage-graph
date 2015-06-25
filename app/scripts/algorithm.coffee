@@ -25,8 +25,8 @@ window.findNegativeCycles = (cyGraph) ->
       edgeTargetId = edge.target().id()
       weight = weightFn.apply(edge, [edge])
 
-      temp = cost[edgeSourceId] + weight
-      if (temp < cost[edgeTargetId])
+      temp = math.add(cost[edgeSourceId], weight)
+      if (math.smaller(temp, cost[edgeTargetId]))
         cost[edgeTargetId] = temp
         predecessor[edgeTargetId] = edgeSourceId
         predEdge[edgeTargetId] = edge
@@ -39,8 +39,8 @@ window.findNegativeCycles = (cyGraph) ->
     edgeTargetId = edge.target().id()
     weight = weightFn.apply(edge, [edge])
 
-    temp = cost[edgeSourceId] + weight
-    if (temp < cost[edgeTargetId])
+    temp = math.add(cost[edgeSourceId], weight)
+    if (math.smaller(temp, cost[edgeTargetId]))
       cost[edgeTargetId] = temp
       hasNegativeWeightCycle = true
       cyclic[edgeTargetId] = true
