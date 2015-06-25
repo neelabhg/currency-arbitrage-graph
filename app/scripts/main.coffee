@@ -12,7 +12,7 @@ findArbitrage = ->
   cyGraph = $("#graph").cytoscape("get")
   output = findNegativeCycles cyGraph
   if output.hasNegativeWeightCycle
-    writeMessage false, "Negative weight cycle detected!"
+    writeMessage false, "#{output.cycles.length} negative weight cycle(s) detected!"
     cycle = output.cycles[0]
     cycle.select()
     edges = cycle.edges().map (elem) -> elem.data()
@@ -22,6 +22,8 @@ findArbitrage = ->
       multiplier *= edge.rate
     console.log start
     console.log multiplier
+  else
+    writeMessage false, "No negative weight cycles detected."
 
 loadGraph = (includedCurrencies, fxRates, currenciesInfo) ->
   $("#graph").height($(document).height() - 150).cytoscape

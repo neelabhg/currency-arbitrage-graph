@@ -1,0 +1,20 @@
+{
+  "currencies": ["USD", "CNY", "EUR"],
+  "rates": [
+    {
+      "from": "CNY",
+      "to": "EUR",
+      "rate": "0.1116"
+    },
+    {
+      "from": "EUR",
+      "to": "USD",
+      "rate": "1.3617"
+    },
+    {
+      "from": "USD",
+      "to": "CNY",
+      "rate": "7.1"
+    }
+  ]
+}
