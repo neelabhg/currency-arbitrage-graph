@@ -19,9 +19,7 @@ window.findNegativeCycles = (cyGraph) ->
   cost[source.id()] = 0
 
   # Edges relaxation
-  flag = false
-  for node, i in nodes[1..]
-    flag = false
+  for i in [1..nodes.length-1]
     for edge in edges
       edgeSourceId = edge.source().id()
       edgeTargetId = edge.target().id()
@@ -32,25 +30,20 @@ window.findNegativeCycles = (cyGraph) ->
         cost[edgeTargetId] = temp
         predecessor[edgeTargetId] = edgeSourceId
         predEdge[edgeTargetId] = edge
-        flag = true
 
-    if (!flag)
-      break
+  # Check for negative weight cycles
+  hasNegativeWeightCycle = false
+  cyclic = {}
+  for edge in edges
+    edgeSourceId = edge.source().id()
+    edgeTargetId = edge.target().id()
+    weight = weightFn.apply(edge, [edge])
 
-  if (flag)
-    # Check for negative weight cycles
-    hasNegativeWeightCycle = false
-    cyclic = {}
-    for edge in edges
-      edgeSourceId = edge.source().id()
-      edgeTargetId = edge.target().id()
-      weight = weightFn.apply(edge, [edge])
-
-      temp = cost[edgeSourceId] + weight
-      if (temp < cost[edgeTargetId])
-        cost[edgeTargetId] = temp
-        hasNegativeWeightCycle = true
-        cyclic[edgeTargetId] = true
+    temp = cost[edgeSourceId] + weight
+    if (temp < cost[edgeTargetId])
+      cost[edgeTargetId] = temp
+      hasNegativeWeightCycle = true
+      cyclic[edgeTargetId] = true
 
   cycles = []
   for nodeId in Object.keys(cyclic)
