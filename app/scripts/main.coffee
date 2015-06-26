@@ -123,7 +123,10 @@ main = ->
         $graph.empty()
         showLoadingMessage()
         getCurrentFxRates(selectedCurrencies).then (fxRates) ->
-          $dataSourceInfo.text("Loading graph with current data from Yahoo Finance.")
+          $dataSourceInfo.html("Latest currency exchange rate data from the
+            <a target='_blank'
+              href='https://developer.yahoo.com/yql/console/?q=show%20tables&env=store://datatables.org/alltableswithkeys#h=desc+yahoo.finance.xchange'>
+              yahoo.finance.xchange community datatable on the Yahoo Query Language platform</a>.")
           hideLoadingMessage()
           loadGraph selectedCurrencies, fxRates, currencies
 
