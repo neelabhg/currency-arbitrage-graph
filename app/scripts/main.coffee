@@ -12,20 +12,28 @@ findArbitrage = ->
   cyGraph = $("#graph").cytoscape("get")
   output = findNegativeCycles cyGraph, (edge) -> -1 * Math.log(edge.data("rate"))
 
-  $negativeCyclesList = $("#negative-cycles-list")
-  $negativeCyclesList.empty()
+  $negativeCyclesList = $("<div>").attr("class", "list-group")
+  $("#arbitrage-opportunities").empty().append($("<h3>").text("Arbitrage Opportunities")).append($negativeCyclesList)
 
+  arbitrages = []
   if output.hasNegativeWeightCycle
+    arbitrages =
+      for cycle in output.cycles
+          multiplier: cycle.edges().map((elem) -> elem.data("rate")).reduce((acc, rate) -> acc * rate)
+          cycle: cycle
+    arbitrages = (arbitrage for arbitrage in arbitrages when arbitrage.multiplier > 1)
+
+  if arbitrages.length > 0
     writeMessage false, "Negative weight cycle(s) detected!"
-    output.cycles.forEach (cycle) ->
-      multiplier = cycle.edges().map((elem) -> elem.data("rate")).reduce((acc, rate) -> acc * rate)
+    arbitrages.sort (a, b) -> math.subtract(b.multiplier, a.multiplier)
+    arbitrages.forEach (arbitrage) ->
       $negativeCyclesList.append(
         $("<a>")
           .attr("href", "#")
           .attr("class", "list-group-item")
-          .click(-> cycle.select())
-          .append $("<p>").html(cycle.nodes().map((elem) -> elem.id()).join(" &rarr; "))
-          .append $("<p>").text("With 1 unit of the starting currency, you get #{multiplier} units"))
+          .click(-> cyGraph.elements().unselect(); arbitrage.cycle.select())
+          .append $("<p>").html(arbitrage.cycle.nodes().map((elem) -> elem.id()).join(" &rarr; "))
+          .append $("<p>").text("With 1 unit of the starting currency, you get ~#{arbitrage.multiplier.toFixed(4)} units"))
   else
     writeMessage false, "No negative weight cycles detected."
     $negativeCyclesList.append($("<p>").text("No arbitrage opportunities available."))
