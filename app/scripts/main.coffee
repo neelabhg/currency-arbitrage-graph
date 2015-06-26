@@ -1,9 +1,9 @@
 writeMessage = (->
   $messages = $("#messages")
   (clear, message) ->
-    oldText = if clear then "" else $messages.text() + "\n"
+    oldText = if clear then "" else $messages.html() + "\n"
     newText = message ? ""
-    $messages.text(oldText + newText))()
+    $messages.html(oldText + newText))()
 
 getCurrencies = ->
   $.getJSON "data/currencies.min.json"
@@ -83,7 +83,7 @@ loadGraph = (includedCurrencies, fxRates, currenciesInfo) ->
 
 loadDemo = (number, currenciesInfo) ->
   $.getJSON("data/demo#{number}.json").then (data) ->
-    writeMessage true, "Loading graph with dummy data."
+    writeMessage true, "Loading graph with example data from <a target='_blank' href='#{data.source.url}'>#{data.source.name}</a>."
     loadGraph data.currencies, data.rates, currenciesInfo
 
 main = ->

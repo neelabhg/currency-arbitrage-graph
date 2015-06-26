@@ -1,4 +1,8 @@
 {
+  "source": {
+    "name": "Kelvin Jiang's blog",
+    "url": "http://www.kelvinjiang.com/2010/10/currency-arbitrage-in-99-lines-of-ruby.html"
+  },
   "currencies": ["USD", "GBP", "EUR", "JPY"],
   "rates": [
     {
