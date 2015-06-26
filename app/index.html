@@ -48,17 +48,22 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <p>For details and more information, please visit the <a target="_blank" href="https://github.com/neelabhg/currency-arbitrage-graph">project on GitHub</a>.</p>
-          <h3>Demos</h3>
-          <button class="btn" id="load-demo-1">Demo 1</button>
-          <button class="btn" id="load-demo-2">Demo 2</button>
-          <h3>Real data</h3>
-          <div style="overflow-x: hidden">
+          <div>
+            <h3>Demos</h3>
+            <button class="btn" id="load-demo-1">Demo 1</button>
+            <button class="btn" id="load-demo-2">Demo 2</button>
+          </div>
+          <h3>Real current data</h3>
+          <div>
             <label for="currency-list-select">Select currencies</label>
-            <select id="currency-list-select" multiple="multiple"></select>
-            <button class="btn" id="load-real-data-graph">Load graph</button>
+            <select id="currency-list-select" multiple="multiple" style="width: 100%"></select>
+            <button class="btn btn-block" id="load-real-data-graph" style="margin-top: 5px">Load graph</button>
           </div>
         </div>
         <div class="col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2 main">
+          <div id="graph-placeholder" class="text-center">
+            <h3>Welcome! Get started by selecting a demo or loading real currency data using the sidebar on the left.</h3>
+          </div>
           <div id="graph"></div>
           <div id="messages" style="white-space: pre-wrap"></div>
         </div>
