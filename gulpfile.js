@@ -164,10 +164,13 @@ gulp.task('build', ['jshint', 'html', 'images', 'fonts', 'extras'], function () 
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
-gulp.task('deploy', ['build'], function () {
+gulp.task('gh-pages', ['build'], function () {
   return gulp.src('dist')
-    .pipe($.subtree())
-    .pipe($.clean());
+    .pipe($.subtree());
+});
+
+gulp.task('deploy', ['gh-pages'], function () {
+  gulp.start('clean');
 });
 
 gulp.task('default', ['clean'], function () {
