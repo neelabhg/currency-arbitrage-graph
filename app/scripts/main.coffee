@@ -97,14 +97,29 @@ main = ->
 
     $currencyListSelect.select2('val', preSelectedCurrencies)
 
+    $graphPlaceholder = $("#graph-placeholder")
+    loading = """
+        <div class="center-block" style="width: 20%">
+          <h3>Loading Graph</h3>
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped active" role="progressbar" style="width: 100%">
+              <span class="sr-only">Loading graph</span>
+            </div>
+          </div>
+        </div>
+      """
+
     $("#load-real-data-graph").click ->
       selectedCurrencies = $currencyListSelect.val()
       if !selectedCurrencies? or selectedCurrencies.length < 2
         console.log "Must include at least two currencies to get exchange rates"
       else
+        $("#graph").empty()
+        $graphPlaceholder.html(loading)
         getCurrentFxRates(selectedCurrencies).then (fxRates) ->
           writeMessage true, "Loading graph with current data from Yahoo Finance."
           loadGraph selectedCurrencies, fxRates, currencies
+          $graphPlaceholder.empty()
 
     $("#load-demo-1").click ->
       loadDemo 1, currencies
