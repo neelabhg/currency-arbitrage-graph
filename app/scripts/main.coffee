@@ -10,13 +10,13 @@ getCurrencies = ->
 
 findArbitrage = ->
   cyGraph = $("#graph").cytoscape("get")
-  output = findNegativeCycles cyGraph
+  output = findNegativeCycles cyGraph, (edge) -> -1 * Math.log(edge.data("rate"))
 
   $negativeCyclesList = $("#negative-cycles-list")
   $negativeCyclesList.empty()
 
   if output.hasNegativeWeightCycle
-    writeMessage false, "#{output.cycles.length} negative weight cycle(s) detected!"
+    writeMessage false, "Negative weight cycle(s) detected!"
     output.cycles.forEach (cycle) ->
       multiplier = cycle.edges().map((elem) -> elem.data("rate")).reduce((acc, rate) -> acc * rate)
       $negativeCyclesList.append(
@@ -28,6 +28,7 @@ findArbitrage = ->
           .append $("<p>").text("With 1 unit of the starting currency, you get #{multiplier} units"))
   else
     writeMessage false, "No negative weight cycles detected."
+    $negativeCyclesList.append($("<p>").text("No arbitrage opportunities available."))
 
 loadGraph = (includedCurrencies, fxRates, currenciesInfo) ->
   $("#graph").height($(document).height() - 150).cytoscape
@@ -69,7 +70,6 @@ loadGraph = (includedCurrencies, fxRates, currenciesInfo) ->
             source: rate.from
             target: rate.to
             rate: rate.rate
-            weight: -1 * Math.log(rate.rate)
 
   findArbitrage()
 
