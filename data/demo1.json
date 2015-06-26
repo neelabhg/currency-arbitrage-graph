@@ -1,0 +1,69 @@
+{
+  "source": {
+    "name": "Kelvin Jiang's blog",
+    "url": "http://www.kelvinjiang.com/2010/10/currency-arbitrage-in-99-lines-of-ruby.html"
+  },
+  "currencies": ["USD", "GBP", "EUR", "JPY"],
+  "rates": [
+    {
+      "from": "USD",
+      "to": "EUR",
+      "rate": "0.69546"
+    },
+    {
+      "from": "USD",
+      "to": "GBP",
+      "rate": "0.61482"
+    },
+    {
+      "from": "USD",
+      "to": "JPY",
+      "rate": "90.7400"
+    },
+    {
+      "from": "EUR",
+      "to": "USD",
+      "rate": "1.43790"
+    },
+    {
+      "from": "EUR",
+      "to": "GBP",
+      "rate": "0.88405"
+    },
+    {
+      "from": "EUR",
+      "to": "JPY",
+      "rate": "130.475"
+    },
+    {
+      "from": "GBP",
+      "to": "USD",
+      "rate": "1.62650"
+    },
+    {
+      "from": "GBP",
+      "to": "EUR",
+      "rate": "1.13116"
+    },
+    {
+      "from": "GBP",
+      "to": "JPY",
+      "rate": "147.589"
+    },
+    {
+      "from": "JPY",
+      "to": "USD",
+      "rate": "0.01102"
+    },
+    {
+      "from": "JPY",
+      "to": "EUR",
+      "rate": "0.00766"
+    },
+    {
+      "from": "JPY",
+      "to": "GBP",
+      "rate": "0.00678"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "source": {
+    "name": "Professor Sariel's CS 473 Lecture Notes",
+    "url": "https://courses.engr.illinois.edu/cs473/sp2015/w/lec/05_lec.pdf"
+  },
+  "currencies": ["USD", "CNY", "EUR"],
+  "rates": [
+    {
+      "from": "CNY",
+      "to": "EUR",
+      "rate": "0.1116"
+    },
+    {
+      "from": "EUR",
+      "to": "USD",
+      "rate": "1.3617"
+    },
+    {
+      "from": "USD",
+      "to": "CNY",
+      "rate": "7.1"
+    }
+  ]
+}
