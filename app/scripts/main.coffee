@@ -26,14 +26,17 @@ findArbitrage = ->
   output = findNegativeCycles cyGraph, (edge) -> -1 * Math.log(edge.data("rate"))
 
   $negativeCyclesList = $("<div>").attr("class", "list-group")
-  $arbitrageOpportunities.empty().append($("<h3>").text("Arbitrage Opportunities")).append($negativeCyclesList)
+  $arbitrageOpportunities
+    .empty()
+    .append("<h3>Arbitrage Opportunities</h3>")
+    .append($negativeCyclesList)
 
   arbitrages = []
   if output.hasNegativeWeightCycle
     arbitrages =
       for cycle in output.cycles
-          multiplier: cycle.edges().map((elem) -> elem.data("rate")).reduce((acc, rate) -> acc * rate)
-          cycle: cycle
+        multiplier: cycle.edges().map((elem) -> elem.data("rate")).reduce((acc, rate) -> acc * rate)
+        cycle: cycle
     arbitrages = (arbitrage for arbitrage in arbitrages when arbitrage.multiplier > 1)
 
   if arbitrages.length > 0
@@ -46,8 +49,9 @@ findArbitrage = ->
           .click(-> cyGraph.elements().unselect(); arbitrage.cycle.select())
           .append $("<p>").html(arbitrage.cycle.nodes().map((elem) -> elem.id()).join(" &rarr; "))
           .append $("<p>").text("With 1 unit of the starting currency, you get ~#{arbitrage.multiplier.toFixed(4)} units"))
+    $arbitrageOpportunities.append("<p>Note: All possible arbitrage opportunities may not be shown.</p>")
   else
-    $negativeCyclesList.append($("<p>").text("No arbitrage opportunities available."))
+    $arbitrageOpportunities.append("<p>No arbitrage opportunities available.</p>")
 
 loadGraph = (includedCurrencies, fxRates, currenciesInfo) ->
   $graph.height($(document).height() - 150).cytoscape
