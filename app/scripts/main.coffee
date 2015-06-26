@@ -1,9 +1,5 @@
-writeMessage = (->
-  $messages = $("#messages")
-  (clear, message) ->
-    oldText = if clear then "" else $messages.html() + "\n"
-    newText = message ? ""
-    $messages.html(oldText + newText))()
+$dataSourceInfo = $("#data-source-info")
+$graphPlaceholder = $("#graph-placeholder")
 
 getCurrencies = ->
   $.getJSON "data/currencies.min.json"
@@ -24,7 +20,6 @@ findArbitrage = ->
     arbitrages = (arbitrage for arbitrage in arbitrages when arbitrage.multiplier > 1)
 
   if arbitrages.length > 0
-    writeMessage false, "Negative weight cycle(s) detected!"
     arbitrages.sort (a, b) -> math.subtract(b.multiplier, a.multiplier)
     arbitrages.forEach (arbitrage) ->
       $negativeCyclesList.append(
@@ -35,7 +30,6 @@ findArbitrage = ->
           .append $("<p>").html(arbitrage.cycle.nodes().map((elem) -> elem.id()).join(" &rarr; "))
           .append $("<p>").text("With 1 unit of the starting currency, you get ~#{arbitrage.multiplier.toFixed(4)} units"))
   else
-    writeMessage false, "No negative weight cycles detected."
     $negativeCyclesList.append($("<p>").text("No arbitrage opportunities available."))
 
 loadGraph = (includedCurrencies, fxRates, currenciesInfo) ->
@@ -83,8 +77,9 @@ loadGraph = (includedCurrencies, fxRates, currenciesInfo) ->
 
 loadDemo = (number, currenciesInfo) ->
   $.getJSON("data/demo#{number}.json").then (data) ->
-    writeMessage true, "Loading graph with example data from <a target='_blank' href='#{data.source.url}'>#{data.source.name}</a>."
+    $dataSourceInfo.html("Example data from <a target='_blank' href='#{data.source.url}'>#{data.source.name}</a>.")
     loadGraph data.currencies, data.rates, currenciesInfo
+    $graphPlaceholder.empty()
 
 main = ->
   $currencyListSelect = $("#currency-list-select")
@@ -97,7 +92,6 @@ main = ->
 
     $currencyListSelect.select2('val', preSelectedCurrencies)
 
-    $graphPlaceholder = $("#graph-placeholder")
     loading = """
         <div class="center-block" style="width: 20%">
           <h3>Loading Graph</h3>
@@ -117,7 +111,7 @@ main = ->
         $("#graph").empty()
         $graphPlaceholder.html(loading)
         getCurrentFxRates(selectedCurrencies).then (fxRates) ->
-          writeMessage true, "Loading graph with current data from Yahoo Finance."
+          $dataSourceInfo.text("Loading graph with current data from Yahoo Finance.")
           loadGraph selectedCurrencies, fxRates, currencies
           $graphPlaceholder.empty()
 
