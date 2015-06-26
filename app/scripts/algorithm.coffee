@@ -18,7 +18,7 @@ window.findNegativeCycles = (cyGraph, weightFn) ->
   cost[source.id()] = 0
 
   # Edges relaxation
-  for i in [1..nodes.length-1]
+  for [1..nodes.length-1]
     for edge in edges
       edgeSourceId = edge.source().id()
       edgeTargetId = edge.target().id()
